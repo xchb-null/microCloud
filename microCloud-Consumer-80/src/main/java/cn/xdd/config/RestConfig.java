@@ -1,12 +1,10 @@
 package cn.xdd.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.function.ServerRequest;
 
 import java.nio.charset.Charset;
 import java.util.Base64;
@@ -19,8 +17,8 @@ import java.util.Base64;
  */
 @Configuration
 public class RestConfig {
-
     @Bean
+    @LoadBalanced //开启客户端负载均衡
    public RestTemplate restTemplate(){
        return new RestTemplate();
     }

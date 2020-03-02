@@ -2,6 +2,7 @@ package cn.xdd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author XDD
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/3/1
  * @description Good Good Study,Day Day Up.
  */
+@EnableDiscoveryClient
 @SpringBootApplication
 public class MicroCloudConsumerApplicationContext {
 

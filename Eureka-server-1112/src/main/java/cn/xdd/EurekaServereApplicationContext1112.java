@@ -2,19 +2,18 @@ package cn.xdd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.ApplicationContext;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * @author XDD
  * @project microCloud
- * @date 2020/3/1
+ * @date 2020/3/3
  * @description Good Good Study,Day Day Up.
  */
-@EnableDiscoveryClient
+@EnableEurekaServer
 @SpringBootApplication
-public class UserPrivoderApplicationContext8080 {
+public class EurekaServereApplicationContext1112 {
     public static void main(String[] args) {
-        SpringApplication.run(UserPrivoderApplicationContext8080.class,args);
+        SpringApplication.run(EurekaServereApplicationContext1112.class,args);
     }
 }

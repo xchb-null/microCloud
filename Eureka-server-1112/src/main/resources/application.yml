@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: MyEurekaServer
+server:
+  port: 1112
+
+
+eureka:
+  instance:
+    hostname: xdd.cn
+
+  client:
+    service-url:
+      defaultZone: http://xdd.com:1111/eureka/
+

@@ -23,9 +23,10 @@ import java.util.List;
 @RequestMapping("/consumer/user")
 public class UserController {
 
-    private static final String REST_FIND_ONE_URL = "http://xdd.com:8080/microCloud/privoder/user/";
+    /*private static final String REST_FIND_ONE_URL = "http://xdd.com:8080/microCloud/privoder/user/";
     private static final String REST_FIND_ALL_URL = "http://xdd.com:8080/microCloud/privoder/user/list";
-    private static final String REST_INSERT_ONE_URL = "http://xdd.com:8080/microCloud/privoder/user/save";
+    private static final String REST_INSERT_ONE_URL = "http://xdd.com:8080/microCloud/privoder/user/save";*/
+    private static final String EUREKA_SERVER_NAME = "http://USER-SERVICE-PRIVODER-8080/";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -35,19 +36,19 @@ public class UserController {
 
     @RequestMapping("/{id}")
     public Object findOne(@PathVariable("id") Integer id){
-        User user =  this.restTemplate.exchange(REST_FIND_ONE_URL+id, HttpMethod.GET
+        User user =  this.restTemplate.exchange(EUREKA_SERVER_NAME+"/privoder/user/"+id, HttpMethod.GET
                 ,new HttpEntity<Object>(this.httpHeaders),User.class).getBody();
         return user;
     }
 
     @RequestMapping("/list")
     public List<Object> findAll(){
-        return restTemplate.exchange(REST_FIND_ALL_URL,HttpMethod.GET,new HttpEntity<>(httpHeaders),List.class).getBody();
+        return restTemplate.exchange(EUREKA_SERVER_NAME+"/privoder/user/list",HttpMethod.GET,new HttpEntity<>(httpHeaders),List.class).getBody();
     }
 
     @RequestMapping("/save")
     public Object save(User user){
-        Boolean flag =  restTemplate.exchange(REST_INSERT_ONE_URL,HttpMethod.POST
+        Boolean flag =  restTemplate.exchange(EUREKA_SERVER_NAME+"/privoder/user/save",HttpMethod.POST
                 ,new HttpEntity<Object>(user, httpHeaders),Boolean.class).getBody();
         return flag;
     }
